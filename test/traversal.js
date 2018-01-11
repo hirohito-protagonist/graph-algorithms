@@ -47,4 +47,17 @@ describe('Traversal', () => {
             done();
         });
     });
+
+    describe('depthFirst', () => {
+
+        it('should visit graph in correct order', (done) => {
+
+            const vertices = [];
+
+            Traversal.depthFirst(graph, (vertex) => vertices.push(vertex));
+
+            expect(vertices).to.equal([0, 1, 2, 3, 6, 5, 8, 4, 7]);
+            done();
+        });
+    });
 });
