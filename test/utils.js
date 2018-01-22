@@ -104,14 +104,14 @@ describe('Utils', () => {
             });
 
             expect(Utils.distanceTable(graph, 3)).to.equal({
-                '0': [undefined, undefined],
-                '1': [undefined, undefined],
-                '2': [undefined, undefined],
+                '0': [null, null],
+                '1': [null, null],
+                '2': [null, null],
                 '3': [0, 3],
                 '4': [4, 3],
-                '5': [undefined, undefined],
+                '5': [null, null],
                 '6': [4, 3],
-                '7': [undefined, undefined],
+                '7': [null, null],
                 '8': [7, 6]
             });
             done();
@@ -160,14 +160,14 @@ describe('Utils', () => {
             });
 
             expect(Utils.priorityDistanceTable(graph, 3)).to.equal({
-                '0': [undefined, undefined],
-                '1': [undefined, undefined],
-                '2': [undefined, undefined],
+                '0': [null, null],
+                '1': [null, null],
+                '2': [null, null],
                 '3': [0, 3],
                 '4': [1, 3],
-                '5': [undefined, undefined],
+                '5': [null, null],
                 '6': [1, 3],
-                '7': [undefined, undefined],
+                '7': [null, null],
                 '8': [2, 6]
             });
             done();
