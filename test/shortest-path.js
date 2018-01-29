@@ -1,10 +1,6 @@
+const { expect } = require('code');
 const Lab = require('lab');
-const lab = exports.lab = Lab.script();
-
-const beforeEach = lab.beforeEach;
-const describe = lab.describe;
-const it = lab.it;
-const expect = Lab.expect;
+const { beforeEach, describe, it } = exports.lab = Lab.script();
 
 const ShortestPath = require('./../lib/shortest-path');
 const AdjacencyMatrixGraph = require('./../lib/adjacency-matrix-graph');
@@ -13,7 +9,7 @@ describe('Shortest path', () => {
         
     let graph;
 
-    beforeEach((done) => {
+    beforeEach(() => {
 
         /*
          * 0------>1----->5------->6---------->8 
@@ -33,22 +29,19 @@ describe('Shortest path', () => {
         graph.addEdge(3, 6);
         graph.addEdge(3, 4);
         graph.addEdge(6, 8);
-        done();
     });
 
-    it('should find', (done) => {
+    it('should find', () => {
 
         expect(ShortestPath(graph, 0, 3)).to.equal([0, 1, 2, 3]);
-        done();
     });
 
-    it('should throw exception when path could not be find', (done) => {
+    it('should throw exception when path could not be find', () => {
 
         try {
             ShortestPath(graph, 7, 6);
         } catch(e) {
             expect(e.message).to.equal('There is no path from 7 to 6');
-            done();
         }
     });
 });

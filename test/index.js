@@ -1,18 +1,14 @@
+const { expect } = require('code');
 const Lab = require('lab');
-const lab = exports.lab = Lab.script();
-
-const describe = lab.describe;
-const it = lab.it;
-const expect = Lab.expect;
+const { describe, it } = exports.lab = Lab.script();
 
 const IndexTest = require('./../lib');
 
 describe('Index test', () => {
         
-    it('test', (done) => {
+    it('test', () => {
 
         expect(IndexTest()).to.equal(void(0));
-        done();
     });
 
 

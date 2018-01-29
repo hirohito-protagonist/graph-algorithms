@@ -1,10 +1,6 @@
+const { expect } = require('code');
 const Lab = require('lab');
-const lab = exports.lab = Lab.script();
-
-const beforeEach = lab.beforeEach;
-const describe = lab.describe;
-const it = lab.it;
-const expect = Lab.expect;
+const { beforeEach, describe, it } = exports.lab = Lab.script();
 
 const Utils = require('./../lib/utils');
 const AdjacencyMatrixGraph = require('./../lib/adjacency-matrix-graph');
@@ -45,20 +41,18 @@ describe('Utils', () => {
             }
         ].forEach((testData) => {
 
-            it(`should create ${testData.dimension}x${testData.dimension} matrix`, (done) => {
+            it(`should create ${testData.dimension}x${testData.dimension} matrix`, () => {
 
                 expect(Utils.matrix(testData.dimension)).to.equal(testData.output);
-                done();
             });
         });
 
-        it('should fill items with provided value', (done) => {
+        it('should fill items with provided value', () => {
 
             expect(Utils.matrix(2, 1)).to.equal([
                 [1, 1],
                 [1, 1]
             ]);
-            done();
         });
     });
 
@@ -66,7 +60,7 @@ describe('Utils', () => {
         
         let graph;
 
-        beforeEach((done) => {
+        beforeEach(() => {
     
             /*
              * 0------>1----->5------->6---------->8 
@@ -86,10 +80,9 @@ describe('Utils', () => {
             graph.addEdge(3, 6);
             graph.addEdge(3, 4);
             graph.addEdge(6, 8);
-            done();
         });
 
-        it('should build distance table', (done) => {
+        it('should build distance table', () => {
 
             expect(Utils.distanceTable(graph, 0)).to.equal({
                 '0': [0, 0],
@@ -114,7 +107,6 @@ describe('Utils', () => {
                 '7': [null, null],
                 '8': [7, 6]
             });
-            done();
         });
     });
 
@@ -122,7 +114,7 @@ describe('Utils', () => {
         
         let graph;
 
-        beforeEach((done) => {
+        beforeEach(() => {
     
             /*
              * 0------>1----->5------->6---------->8 
@@ -142,10 +134,9 @@ describe('Utils', () => {
             graph.addEdge(3, 6);
             graph.addEdge(3, 4);
             graph.addEdge(6, 8);
-            done();
         });
 
-        it('should build distance table', (done) => {
+        it('should build distance table', () => {
 
             expect(Utils.priorityDistanceTable(graph, 0)).to.equal({
                 '0': [0, 0],
@@ -170,7 +161,6 @@ describe('Utils', () => {
                 '7': [null, null],
                 '8': [2, 6]
             });
-            done();
         });
     });
 });
